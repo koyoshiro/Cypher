@@ -32,7 +32,7 @@ module.exports = function buildCommit(answers, config) {
   }
 
   function generateHeader(answers) {
-      const commitTypeName = config.types.types[answers.type].title;
+      const commitTypeName = config.types.typeList[answers.type].title;
     const head = `[机票 V${answers.version}] ${commitTypeName} ${addSubject(answers.subject)}\n\n`;
     return head;
 }

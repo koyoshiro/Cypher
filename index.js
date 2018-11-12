@@ -40,7 +40,7 @@ function readConfigFile() {
 }
 
 var COMMIT_TYPE = {
-        types: {
+        typeList: {
                 feat: {
                         description: "    产品需求实现的一部分",
                         title: "需求"
@@ -83,7 +83,7 @@ module.exports = {
 
                 config.types = COMMIT_TYPE;
 
-                cz.prompt(questions.getQuestions(config, COMMIT_TYPE)).then(
+                cz.prompt(questions.getQuestions(config)).then(
                         function(answers) {
                                 if (answers.confirmCommit === "yes") {
                                         commit(buildCommit(answers, config));

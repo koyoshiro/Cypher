@@ -18,9 +18,9 @@ module.exports = {
     messages.body = messages.body || '本次提交主要内容 (可选). 使用 "|" 换行:\n';
     messages.confirmCommit = messages.confirmCommit || '是否确认提交内容?';
 
-    const TagChoiceArray = Object.keys(config.types).map(function (key) {
+    const TagChoiceArray = Object.keys(config.types.typeList).map(function (key) {
         return {
-            name: config.types.types[key].title + '    ' + config.types.types[key].description,
+            name: config.types.typeList[key].title + '    ' + config.types.typeList[key].description,
             value: key
         };
     });
