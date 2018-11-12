@@ -74,11 +74,14 @@ var COMMIT_TYPE = {
 
 module.exports = {
         prompter: function(cz, commit) {
-                var config = readConfigFile();
+                var config = {
+                    messages:{},
+                    types:{}
+                };//readConfigFile();
 
                 console.log("\n\n每行长度为100个字符。\n");
 
-                config.types = config ? config.types : COMMIT_TYPE;
+                config.types = COMMIT_TYPE;
 
                 cz.prompt(questions.getQuestions(config, COMMIT_TYPE)).then(
                         function(answers) {
