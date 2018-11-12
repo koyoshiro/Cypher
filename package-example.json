@@ -5,8 +5,11 @@
     "cz-customizable": {
         "config": "cz-config.js"
     }
+    "commitizen": {
+      "path": "./commit-config.js"
+  }
 }
-
+"cypher": "git+https://github.com/koyoshiro/Cypher.git#master"
 'use strict';
 
 module.exports = {

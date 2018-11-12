@@ -78,17 +78,12 @@ module.exports = {
 
                 console.log("\n\n每行长度为100个字符。\n");
 
-                config.types = config.types || COMMIT_TYPE;
+                config.types = config ? config.types : COMMIT_TYPE;
 
                 cz.prompt(questions.getQuestions(config, COMMIT_TYPE)).then(
                         function(answers) {
                                 if (answers.confirmCommit === "yes") {
-                                        commit(
-                                                buildCommit(
-                                                        answers,
-                                                        config
-                                                )
-                                        );
+                                        commit(buildCommit(answers, config));
                                 } else {
                                         console.log("已取消提交。");
                                 }
