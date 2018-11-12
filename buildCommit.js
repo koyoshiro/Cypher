@@ -37,27 +37,22 @@ module.exports = function buildCommit(answers, config) {
     return result;
   }
 
+  function generateHeader(answers) {
+      const commitTypeName = config.types.types[answers.type].title;
+    const head = `[机票 V${answers.version}] ${commitTypeName} ${answers.subject}\n\n`;
+    return head;
+}
+
   // Hard limit this line
-  var head = (answers.type + addScope(answers.scope) + addSubject(answers.subject)).slice(0, maxLineWidth);
+  var head = generateHeader(answers);
 
   // Wrap these lines at 100 characters
   var body = wrap(answers.body, wrapOptions) || '';
   body = body.split('|').join('\n');
 
-  var breaking = wrap(answers.breaking, wrapOptions);
-  var footer = wrap(answers.footer, wrapOptions);
-
   var result = head;
   if (body) {
     result += '\n\n' + body;
-  }
-  if (breaking) {
-    var breakingPrefix = config && config.breakingPrefix ? config.breakingPrefix : 'BREAKING CHANGE:';
-    result += '\n\n' + breakingPrefix + '\n' + breaking;
-  }
-  if (footer) {
-    var footerPrefix = config && config.footerPrefix ? config.footerPrefix : 'ISSUES CLOSED:';
-    result += '\n\n' + footerPrefix + ' ' + footer;
   }
 
   return escapeSpecialChars(result);

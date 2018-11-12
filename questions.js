@@ -2,23 +2,28 @@
 
 var buildCommit = require('./buildCommit');
 
+
 module.exports = {
 
-  getQuestions: function(config, cz) {
+  getQuestions: function(config) {
 
     // normalize config optional options
-    var scopeOverrides = config.scopeOverrides || {};
     var messages = config.messages || {};
 
-    messages.version = messages.version || '版本号:';
-    messages.type = messages.type || 'Select the type of change that you\'re committing:';
-    messages.scope = messages.scope || '\nDenote the SCOPE of this change (optional):';
-    messages.customScope = messages.customScope || 'Denote the SCOPE of this change:';
-    messages.subject = messages.subject || 'Write a SHORT, IMPERATIVE tense description of the change:\n';
-    messages.body = messages.body || 'Provide a LONGER description of the change (optional). Use "|" to break new line:\n';
-    messages.breaking = messages.breaking || 'List any BREAKING CHANGES (optional):\n';
-    messages.footer = messages.footer || 'List any ISSUES CLOSED by this change (optional). E.g.: #31, #34:\n';
-    messages.confirmCommit = messages.confirmCommit || 'Are you sure you want to proceed with the commit above?';
+    messages.version = messages.version || '版本号，当前app版本，例如（8.00，8.00.2）：\n';
+    messages.type = messages.type || '修改类型，从以下选项中选择最符合的一项：\n';
+    messages.featID = messages.featID || '需求号：\n';
+    messages.fixID = messages.fixID || '修复编号（包括BugID、IssueID）：\n';
+    messages.subject = messages.subject || '主题，简要描述本次提交的内容：\n';
+    messages.body = messages.body || '本次提交主要内容 (可选). 使用 "|" 换行:\n';
+    messages.confirmCommit = messages.confirmCommit || '是否确认提交内容?';
+
+    const TagChoiceArray = Object.keys(config.types).map(function (key) {
+        return {
+            name: config.types[key].title + '    ' + config.types[key].description,
+            value: key
+        };
+    });
 
     var questions = [
       {
@@ -30,51 +35,23 @@ module.exports = {
         type: 'list',
         name: 'type',
         message: messages.type,
-        choices: config.types
-      },
-      {
-        type: 'list',
-        name: 'scope',
-        message: messages.scope,
-        choices: function(answers) {
-          var scopes = [];
-          if (scopeOverrides[answers.type]) {
-            scopes = scopes.concat(scopeOverrides[answers.type]);
-          } else {
-            scopes = scopes.concat(config.scopes);
-          }
-          if (config.allowCustomScopes || scopes.length === 0) {
-            scopes = scopes.concat([
-              new cz.Separator(),
-              { name: 'empty', value: false },
-              { name: 'custom', value: 'custom' }
-            ]);
-          }
-          return scopes;
-        },
-        when: function(answers) {
-          var hasScope = false;
-          if (scopeOverrides[answers.type]) {
-            hasScope = !!(scopeOverrides[answers.type].length > 0);
-          } else {
-            hasScope = !!(config.scopes && (config.scopes.length > 0));
-          }
-          if (!hasScope) {
-            answers.scope = 'custom';
-            return false;
-          } else {
-            return isNotWip(answers);
-          }
-        }
+        choices: TagChoiceArray
       },
       {
         type: 'input',
-        name: 'scope',
-        message: messages.customScope,
-        when: function(answers) {
-          return answers.scope === 'custom';
+        name: 'featID',
+        message: messages.featID,
+        when: function(answers){
+            return answers.type === 'feat';
         }
-      },
+      }, {
+        type: 'input',
+        name: 'fixID',
+        message: messages.fixID,
+        when: function(answers){
+            return answers.type === 'fix';
+        }
+    },
       {
         type: 'input',
         name: 'subject',
@@ -92,23 +69,6 @@ module.exports = {
         message: messages.body
       },
       {
-        type: 'input',
-        name: 'breaking',
-        message: messages.breaking,
-        when: function(answers) {
-          if (config.allowBreakingChanges && config.allowBreakingChanges.indexOf(answers.type.toLowerCase()) >= 0) {
-            return true;
-          }
-          return false; // no breaking changes allowed unless specifed
-        }
-      },
-      {
-        type: 'input',
-        name: 'footer',
-        message: messages.footer,
-        when: isNotWip
-      },
-      {
         type: 'expand',
         name: 'confirmCommit',
         choices: [
@@ -118,7 +78,7 @@ module.exports = {
         ],
         message: function(answers) {
           var SEP = '###--------------------------------------------------------###';
-          log.info('\n' + SEP + '\n' + buildCommit(answers, config) + '\n' + SEP + '\n');
+          console.log('\n' + SEP + '\n' + buildCommit(answers, config) + '\n' + SEP + '\n');
           return messages.confirmCommit;
         }
       }
