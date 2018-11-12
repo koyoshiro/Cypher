@@ -20,7 +20,7 @@ module.exports = {
 
     const TagChoiceArray = Object.keys(config.types).map(function (key) {
         return {
-            name: config.types[key].title + '    ' + config.types[key].description,
+            name: config.types.types[key].title + '    ' + config.types.types[key].description,
             value: key
         };
     });

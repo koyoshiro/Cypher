@@ -15,12 +15,6 @@ module.exports = function buildCommit(answers, config) {
     width: maxLineWidth
   };
 
-  function addScope(scope) {
-    if (!scope) return ': '; //it could be type === WIP. So there is no scope
-
-    return '(' + scope.trim() + '): ';
-  }
-
   function addSubject(subject) {
     return subject.trim();
   }
@@ -39,7 +33,7 @@ module.exports = function buildCommit(answers, config) {
 
   function generateHeader(answers) {
       const commitTypeName = config.types.types[answers.type].title;
-    const head = `[机票 V${answers.version}] ${commitTypeName} ${answers.subject}\n\n`;
+    const head = `[机票 V${answers.version}] ${commitTypeName} ${addSubject(answers.subject)}\n\n`;
     return head;
 }
 
