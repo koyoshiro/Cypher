@@ -1,6 +1,6 @@
 {
         "name": "cypher",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "description": "format commitment for git commit",
         "main": "index.js",
         "scripts": {},
