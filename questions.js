@@ -16,7 +16,7 @@ module.exports = {
     messages.fixID = messages.fixID || '修复编号（包括BugID、IssueID）：\n';
     messages.subject = messages.subject || '主题，简要描述本次提交的内容：\n';
     messages.body = messages.body || '本次提交主要内容 (可选). 使用 "|" 换行:\n';
-    messages.confirmCommit = messages.confirmCommit || '是否确认提交内容?';
+    messages.confirmCommit = messages.confirmCommit || '是否确认提交内容?y/n';
 
     const TagChoiceArray = Object.keys(config.types.typeList).map(function (key) {
         return {
@@ -73,8 +73,7 @@ module.exports = {
         name: 'confirmCommit',
         choices: [
           { key: 'y', name: 'Yes', value: 'yes' },
-          { key: 'n', name: 'Abort commit', value: 'no' },
-          { key: 'e', name: 'Edit message', value: 'edit' }
+          { key: 'n', name: 'Abort commit', value: 'no' }
         ],
         message: function(answers) {
           var SEP = '###--------------------------------------------------------###';
