@@ -30,4 +30,4 @@ git cz
 
 # Todo List
 - [ ] support custom question
-- [ ] npm package
+- [ ] npm package publish
