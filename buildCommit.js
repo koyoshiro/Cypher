@@ -44,9 +44,9 @@ module.exports = function buildCommit(answers, config) {
 
         var head = '';
         if(answers.scope){
-                head = `${answers.type}(${answers.scope}) :${addSubject(answers.subject)}`; 
+                head = `${answers.type}(${answers.scope}): ${addSubject(answers.subject)}\n`; 
         }else{
-                head = `${answers.type} :${addSubject(answers.subject)}`; 
+                head = `${answers.type}: ${addSubject(answers.subject)}\n`; 
         } 
 
         // Wrap these lines at 100 characters
