@@ -42,7 +42,12 @@ module.exports = function buildCommit(answers, config) {
                 return bodyTitle;
         }
 
-        var head = `${answers.type}(${answers.scope}) ${addSubject(answers.subject)}`; 
+        var head = '';
+        if(answers.scope){
+                head = `${answers.type}(${answers.scope}) :${addSubject(answers.subject)}`; 
+        }else{
+                head = `${answers.type} :${addSubject(answers.subject)}`; 
+        } 
 
         // Wrap these lines at 100 characters
         var body = wrap(answers.body, wrapOptions) || "";
