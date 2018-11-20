@@ -3,21 +3,28 @@
         "version": "1.0.1",
         "description": "format commitment for git commit",
         "main": "index.js",
-        "scripts": {},
+        "scripts": {
+                "commitmsg": "validate-commit-msg",
+                "commit": "git-cz ",
+                "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+        },
         "keywords": [],
-        "author": "",
+        "author": "Sky.Gu",
         "license": "MIT",
         "dependencies": {
+                "commitizen": "^2.3.0",
+                "conventional-changelog-cli": "^1.2.0",
                 "find-config": "0.3.0",
                 "inquirer": "1.2.3",
                 "word-wrap": "1.1.0"
         },
         "devDependencies": {
-                "commitizen": "2.9.5"
+                "commitizen": "2.9.5",
+                "cz-conventional-changelog": "^2.1.0"
         },
         "config": {
                 "commitizen": {
-                        "path": "./index.js"
+                        "path": "./node_modules/cz-conventional-changelog"
                 }
         }
 }

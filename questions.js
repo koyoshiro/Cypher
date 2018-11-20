@@ -10,11 +10,12 @@ module.exports = {
     // normalize config optional options
     var messages = config.messages || {};
 
-    messages.version = messages.version || '版本号，当前app版本，例如（8.00，8.00.2）：\n';
     messages.type = messages.type || '修改类型，从以下选项中选择最符合的一项：\n';
     messages.featID = messages.featID || '需求号：\n';
     messages.fixID = messages.fixID || '修复编号（包括BugID、IssueID）：\n';
+    messages.scope = messages.scope || '本次提交影响的范围(可选)：\n';
     messages.subject = messages.subject || '主题，简要描述本次提交的内容：\n';
+    messages.version = messages.version || '版本号，当前app版本，例如（8.00，8.00.2）：\n';
     messages.body = messages.body || '本次提交主要内容 (可选). 使用 "|" 换行:\n';
     messages.confirmCommit = messages.confirmCommit || '是否确认提交内容?y/n';
 
@@ -26,11 +27,6 @@ module.exports = {
     });
 
     var questions = [
-      {
-        type: 'input',
-        name: 'version',
-        message: messages.version
-      },
       {
         type: 'list',
         name: 'type',
@@ -52,6 +48,11 @@ module.exports = {
             return answers.type === 'fix';
         }
     },
+    {
+      type: 'input',
+      name: 'scope',
+      message: messages.scope
+    },
       {
         type: 'input',
         name: 'subject',
@@ -62,6 +63,11 @@ module.exports = {
         filter: function(value) {
           return value.charAt(0).toLowerCase() + value.slice(1);
         }
+      },
+      {
+        type: 'input',
+        name: 'version',
+        message: messages.version
       },
       {
         type: 'input',

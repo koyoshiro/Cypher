@@ -20,15 +20,12 @@ module.exports = function buildCommit(answers, config) {
                 var specialChars = ["`"];
 
                 specialChars.map(function(item) {
-                        // For some strange reason, we have to pass additional '\' slash to commitizen. Total slashes are 4.
-                        // If user types "feat: `string`", the commit preview should show "feat: `\\string\\`".
-                        // Don't worry. The git log will be "feat: `string`"
                         result = result.replace(new RegExp(item, "g"), "\\\\`");
                 });
                 return result;
         }
 
-        function generateHeader(answers) {
+        function generateBody(answers) {
                 var commitTypeName = config.types.typeList[answers.type].title;
                 var commitCode = "";
                 switch (answers.type) {
@@ -41,14 +38,11 @@ module.exports = function buildCommit(answers, config) {
                         default:
                                 break;
                 }
-                var head = `[机票 V${
-                        answers.version
-                }] ${commitTypeName} ${commitCode} \n ${addSubject(answers.subject)}\n`;
-                return head;
+                var bodyTitle = `[机票 V${answers.version}] ${commitTypeName} ${commitCode} \n`;
+                return bodyTitle;
         }
 
-        // Hard limit this line
-        var head = generateHeader(answers);
+        var head = `${answers.type}(${answers.scope}) ${addSubject(answers.subject)}`; 
 
         // Wrap these lines at 100 characters
         var body = wrap(answers.body, wrapOptions) || "";
@@ -56,8 +50,7 @@ module.exports = function buildCommit(answers, config) {
 
         var result = head;
         if (body) {
-                result += "\n" + body;
+                result += `\n ${generateBody(answers)} \n ${body}`;
         }
-
         return escapeSpecialChars(result);
 };
