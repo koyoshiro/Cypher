@@ -10,6 +10,17 @@
   }
 }
 "cypher": "git+https://github.com/koyoshiro/Cypher.git#master"
+
+fix(buildCommit.js): 更改head格式
+
+    区分Scope格式
+
+    BREAKING CHANGE: 老版本不支持
+
+    fix #222
+
+
+
 'use strict';
 
 module.exports = {

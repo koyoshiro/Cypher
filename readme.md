@@ -1,33 +1,42 @@
+![image](https://img.shields.io/badge/language-Javascript-orange.svg)   ![image](https://img.shields.io/badge/npm-v1.0.6-blue.svg)
 # Introduction
 
 Msg formatting tool for git-commit based on Commitizen.
 
 # Installation
 
-package.json File
-
+1. install necessary dependencies
 ```js
+npm install -g commitizen conventional-changelog-cli  husky validate-commit-msg 
+```
+
+2. edit package.json
+```js
+"scripts": {
+        "commitmsg": "validate-commit-msg",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+        "version": "npm run changelog && git add CHANGELOG.md"
+    },
 "devDependencies": {
-        "cypher": "git+https://github.com/koyoshiro/Cypher.git#master"
+        "kyr-cypher": "^1.0.2"
     },
 "config": {
         "commitizen": {
-            "path": "node_modules/cypher"
+           "path": "node_modules/kyr-cypher"
         }
     }    
 ```
-then
+
+3. install or update cypher
 ```js
 npm install
 ```
-use command
-```js
-git cz
-```
 
 # Examples
-![img](https://ws1.sinaimg.cn/large/006tNbRwly1fx6hqp7yfbj30v40ruwoc.jpg)
+![img](https://ws3.sinaimg.cn/large/006tNbRwly1fxftybrhsqj30zm0pwdpc.jpg)
 
 # Todo List
-- [ ] support custom question
-- [ ] npm package publish
+- [x] npm package publish
+- [ ] changelog custom
+- [ ] comment custom
+- [ ] verify file size
