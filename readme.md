@@ -1,4 +1,4 @@
-![image](https://img.shields.io/badge/language-Javascript-orange.svg)   ![image](https://img.shields.io/badge/npm-v1.0.6-blue.svg)
+![image](https://img.shields.io/badge/language-Javascript-orange.svg)   ![image](https://img.shields.io/badge/npm-v1.0.6-blue.svg)  ![image](https://travis-ci.org/koyoshiro/Cypher.svg?branch=master)
 # Introduction
 
 Msg formatting tool for git-commit based on Commitizen.
