@@ -1,5 +1,5 @@
 {
-        "name": "cypher",
+        "name": "kyr-cypher",
         "version": "1.0.4",
         "description": "format commitment for git commit",
         "main": "index.js",
@@ -9,7 +9,7 @@
                 "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
         },
         "keywords": [],
-        "author": "Sky.Gu",
+        "author": "Koyoshiro",
         "license": "MIT",
         "dependencies": {
                 "commitizen": "^2.3.0",
