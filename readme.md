@@ -39,4 +39,3 @@ npm install
 - [x] npm package publish
 - [ ] changelog custom
 - [ ] comment custom
-- [ ] verify file size
