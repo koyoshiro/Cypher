@@ -1,7 +1,9 @@
 ![image](https://img.shields.io/badge/language-Javascript-orange.svg)   ![image](https://img.shields.io/badge/npm-v1.0.6-blue.svg)  ![image](https://travis-ci.org/koyoshiro/Cypher.svg?branch=master)
 # Introduction
 
-Msg formatting tool for git-commit based on Commitizen.
+Msg formatting tool for git-commit based on Commitizen. 
+
+put your cypher then pass it.
 
 # Installation
 
@@ -36,6 +38,15 @@ npm install
 ![img](https://ws3.sinaimg.cn/large/006tNbRwly1fxftybrhsqj30zm0pwdpc.jpg)
 
 # Todo List
-- [x] npm package publish
-- [ ] changelog custom
-- [ ] comment custom
+
+## pre-commit check
+- turn on/off
+- husky
+- commit-lint
+- lint-stage
+- prettier
+- TSLint/ESLint
+
+## multi-language
+- Chinese Language Config
+- English Language Config

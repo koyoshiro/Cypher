@@ -48,7 +48,7 @@ var COMMIT_TYPE = {
             title: '代码重构'
         },
         test: {
-            description: '    添加新的测试用例或修改已有的测试用例',
+            description: '  添加新的测试用例或修改已有的测试用例',
             title: '测试用例'
         },
         build: {
@@ -56,8 +56,8 @@ var COMMIT_TYPE = {
             title: '打包'
         },
         revert: {
-            description: ' Reverts一个过往的提交',
-            title: 'Reverts'
+            description: ' 撤回一个过往的提交',
+            title: '撤回'
         }
     }
 };
