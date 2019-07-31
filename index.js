@@ -70,11 +70,11 @@ module.exports = {
         };
         //readConfigFile();
 
-        console.log('\n\n每行长度为100个字符。\n');
+        // console.log('\n\n每行长度为100个字符。\n');
+        var language = require('./language');
+        config.types = language.english.choices;
 
-        config.types = COMMIT_TYPE;
-
-        cz.prompt(questions.getQuestions(config)).then(function(answers) {
+        cz.prompt(questions.getQuestions(config,language)).then(function(answers) {
             if (answers.confirmCommit === 'yes') {
                 commit(buildCommit(answers, config));
             } else {

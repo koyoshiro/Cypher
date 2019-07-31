@@ -3,22 +3,13 @@
 var buildCommit = require('./buildCommit');
 
 module.exports = {
-    getQuestions: function(config) {
+    getQuestions: function(config,language) {
         // normalize config optional options
-        var messages = config.messages || {};
-
-        messages.type = messages.type || '修改类型，从以下选项中选择最符合的一项：\n';
-        // messages.featID = messages.featID || '需求号：\n';
-        // messages.fixID = messages.fixID || '修复编号（包括BugID、IssueID）：\n';
-        messages.scope = messages.scope || '本次提交影响的范围 (可选):\n';
-        messages.subject = messages.subject || '主题，简要描述本次提交的内容:\n';
-        messages.version = messages.version || '版本号 (可选):\n';
-        messages.body = messages.body || '本次提交主要内容 (可选) 。使用 "|" 换行:\n';
-        messages.confirmCommit = messages.confirmCommit || '是否确认提交内容? y/n';
+        var messages = {type,scope,subject,version,body,confirmCommit} =language
 
         const TagChoiceArray = Object.keys(config.types.typeList).map(function(key) {
             return {
-                name: config.types.typeList[key].title + '    ' + config.types.typeList[key].description,
+                name: `${config.types.typeList[key].title}(${config.types.typeList[key].description})`,
                 value: key
             };
         });
@@ -30,22 +21,6 @@ module.exports = {
                 message: messages.type,
                 choices: TagChoiceArray
             },
-            // {
-            //     type: 'input',
-            //     name: 'featID',
-            //     message: messages.featID,
-            //     when: function(answers) {
-            //         return answers.type === 'feat';
-            //     }
-            // },
-            // {
-            //     type: 'input',
-            //     name: 'fixID',
-            //     message: messages.fixID,
-            //     when: function(answers) {
-            //         return answers.type === 'fix';
-            //     }
-            // },
             {
                 type: 'input',
                 name: 'scope',

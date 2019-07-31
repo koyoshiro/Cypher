@@ -1,18 +1,16 @@
-![image](https://img.shields.io/badge/language-Javascript-orange.svg)   ![image](https://img.shields.io/badge/npm-v1.0.6-blue.svg)  ![image](https://travis-ci.org/koyoshiro/Cypher.svg?branch=master)
+![image](https://img.shields.io/badge/language-Javascript-orange.svg) ![image](https://img.shields.io/badge/npm-v1.0.6-blue.svg) ![image](https://travis-ci.org/koyoshiro/Cypher.svg?branch=master)
+
 # Introduction
+Put your cypher then pass it.
 
-Msg formatting tool for git-commit based on Commitizen. 
+Msg formatting tool for git-commit based on Commitizen.
 
-put your cypher then pass it.
+
 
 # Installation
 
-1. install necessary dependencies
-```js
-npm install -g commitizen conventional-changelog-cli  husky validate-commit-msg 
-```
+1. edit package.json.
 
-2. edit package.json
 ```js
 "scripts": {
         "commitmsg": "validate-commit-msg",
@@ -22,31 +20,66 @@ npm install -g commitizen conventional-changelog-cli  husky validate-commit-msg
 "devDependencies": {
         "kyr-cypher": "^1.0.2"
     },
-"config": {
-        "commitizen": {
-           "path": "node_modules/kyr-cypher"
+"husky": {
+    "hooks": {
+        "pre-commit": "lint-staged"  // if you want to use git-hook
         }
-    }    
+    },
+"config": {
+    "commitizen": {
+        "path": "node_modules/kyr-cypher"
+        }
+    }
 ```
 
-3. install or update cypher
+2. install or update cypher.
+
 ```js
 npm install
 ```
 
-# Examples
-![img](https://ws3.sinaimg.cn/large/006tNbRwly1fxftybrhsqj30zm0pwdpc.jpg)
+3. create file`.lintstagedrc`in `./` and add it.
+
+```js
+{
+    "linters": {
+      "src/*.js": [
+            "prettier --write", // if use prettier
+            "tsc", // if use typescript
+            "commitmsg",
+            "git add"
+            // able to add some commands,like jest
+        ]
+    },
+    "ignore": [
+        "**/dist/*.min.js"  // ignore files
+        ]
+}
+```
+
+4. if you want to use prettier, should create file`.prettierrc`in `./` and add it.
+
+```js
+{
+    "tabWidth": 4,
+    "singleQuote": true,
+    "semi": true,
+    "printWidth": 120
+}
+```
+
 
 # Todo List
 
 ## pre-commit check
-- turn on/off
-- husky
-- commit-lint
-- lint-stage
-- prettier
-- TSLint/ESLint
+
+- [X] husky
+- [X] commit-lint
+- [X] lint-stage
+- [X] prettier
+- [ ] TSLint/ESLint
 
 ## multi-language
-- Chinese Language Config
-- English Language Config
+
+- [X] Chinese Language Config
+- [X] English Language Config
