@@ -3,13 +3,13 @@
 var buildCommit = require('./buildCommit');
 
 module.exports = {
-    getQuestions: function(config,language) {
+    getQuestions: function(choices, language) {
         // normalize config optional options
-        var messages = {type,scope,subject,version,body,confirmCommit} =language
+        var messages = ({ type, scope, subject, version, body, confirmCommit } = language);
 
-        const TagChoiceArray = Object.keys(config.types.typeList).map(function(key) {
+        const TagChoiceArray = Object.keys(choices).map(function(key) {
             return {
-                name: `${config.types.typeList[key].title}(${config.types.typeList[key].description})`,
+                name: `${choices[key].title}(${choices[key].description})`,
                 value: key
             };
         });
@@ -53,7 +53,7 @@ module.exports = {
                 choices: [{ key: 'y', name: 'Yes', value: 'yes' }, { key: 'n', name: 'Abort commit', value: 'no' }],
                 message: function(answers) {
                     var SEP = '###--------------------------------------------------------###';
-                    console.log('\n' + SEP + '\n' + buildCommit(answers, config) + '\n' + SEP + '\n');
+                    console.log('\n' + SEP + '\n' + buildCommit(answers) + '\n' + SEP + '\n');
                     return messages.confirmCommit;
                 }
             }

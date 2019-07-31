@@ -64,19 +64,19 @@ var COMMIT_TYPE = {
 
 module.exports = {
     prompter: function(cz, commit) {
-        var config = {
-            messages: {},
-            types: {}
-        };
+        // var config = {
+        //     messages: {},
+        //     types: {}
+        // };
         //readConfigFile();
 
         // console.log('\n\n每行长度为100个字符。\n');
         var language = require('./language');
-        config.types = language.english.choices;
+        // config.types = language.english.choices;
 
-        cz.prompt(questions.getQuestions(config,language)).then(function(answers) {
+        cz.prompt(questions.getQuestions(language.english.choices,language)).then(function(answers) {
             if (answers.confirmCommit === 'yes') {
-                commit(buildCommit(answers, config));
+                commit(buildCommit(answers));
             } else {
                 console.log('已取消提交。');
             }

@@ -2,7 +2,7 @@
 
 var wrap = require('word-wrap');
 
-module.exports = function buildCommit(answers, config) {
+module.exports = function buildCommit(answers) {
     var maxLineWidth = 100;
 
     var wrapOptions = {
