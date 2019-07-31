@@ -1,3 +1,19 @@
+<a name="1.0.10"></a>
+## [1.0.10](https://github.com/koyoshiro/Cypher/compare/v1.0.9...v1.0.10) (2019-07-31)
+
+
+### Bug Fixes
+
+* update quesion and todo list ([cbaa36e](https://github.com/koyoshiro/Cypher/commit/cbaa36e))
+
+
+### Features
+
+* use husky and support language ([c27c448](https://github.com/koyoshiro/Cypher/commit/c27c448))
+* work todo ([d45a7b5](https://github.com/koyoshiro/Cypher/commit/d45a7b5))
+
+
+
 <a name="1.0.9"></a>
 ## [1.0.9](https://github.com/koyoshiro/Cypher/compare/v1.0.7...v1.0.9) (2019-07-29)
 
