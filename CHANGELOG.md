@@ -4,13 +4,12 @@
 
 ### Bug Fixes
 
-* update quesion and todo list ([cbaa36e](https://github.com/koyoshiro/Cypher/commit/cbaa36e))
+* update question and todo list ([cbaa36e](https://github.com/koyoshiro/Cypher/commit/cbaa36e))
 
 
 ### Features
 
 * use husky and support language ([c27c448](https://github.com/koyoshiro/Cypher/commit/c27c448))
-* work todo ([d45a7b5](https://github.com/koyoshiro/Cypher/commit/d45a7b5))
 
 
 
