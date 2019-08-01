@@ -1,3 +1,8 @@
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/koyoshiro/Cypher/compare/v1.0.13...v1.1.0) (2019-08-01)
+
+
+
 <a name="1.0.13"></a>
 ## [1.0.13](https://github.com/koyoshiro/Cypher/compare/v1.0.12...v1.0.13) (2019-08-01)
 
