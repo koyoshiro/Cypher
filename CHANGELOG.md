@@ -1,3 +1,13 @@
+<a name="1.0.12"></a>
+## [1.0.12](https://github.com/koyoshiro/Cypher/compare/v1.0.11...v1.0.12) (2019-08-01)
+
+
+### Bug Fixes
+
+* change es6 to es5 ([1c182ac](https://github.com/koyoshiro/Cypher/commit/1c182ac))
+
+
+
 <a name="1.0.11"></a>
 ## [1.0.11](https://github.com/koyoshiro/Cypher/compare/v1.0.10...v1.0.11) (2019-08-01)
 
