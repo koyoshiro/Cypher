@@ -5,7 +5,7 @@ Put your cypher then pass it.
 
 Msg formatting tool for git-commit based on Commitizen.
 
-
+And you could check your committing files when pre-commit.
 
 # Installation
 
@@ -18,7 +18,7 @@ Msg formatting tool for git-commit based on Commitizen.
         "version": "npm run changelog && git add CHANGELOG.md"
     },
 "devDependencies": {
-        "kyr-cypher": "^1.0.2"
+        "kyr-cypher": "^1.0.9"
     },
 "husky": {
     "hooks": {
@@ -38,21 +38,16 @@ Msg formatting tool for git-commit based on Commitizen.
 npm install
 ```
 
-3. create file`.lintstagedrc`in `./` and add it.
+3. create file`.lintstagedrc.json`in `./` and add it.
 
 ```js
 {
-    "linters": {
-      "src/*.js": [
-            "prettier --write", // if use prettier
-            "tsc", // if use typescript
-            "commitmsg",
-            "git add"
-            // able to add some commands,like jest
-        ]
-    },
-    "ignore": [
-        "**/dist/*.min.js"  // ignore files
+    "src/*.js": [
+        "prettier --write", // if use prettier
+        "tsc",  // if use typescript
+        "commitmsg",
+        "git add"
+        // able to add some commands,like jest
         ]
 }
 ```
