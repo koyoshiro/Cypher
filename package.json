@@ -13,6 +13,9 @@
     "license": "MIT",
     "peerDependencies": {},
     "dependencies": {
+        "find-config": "0.3.0",
+        "inquirer": "1.2.3",
+        "word-wrap": "1.1.0",
         "commitizen": "^2.3.0",
         "conventional-changelog-cli": "^1.2.0",
         "husky": "^3.0.2",
