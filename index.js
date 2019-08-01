@@ -29,39 +29,6 @@ function readConfigFile() {
     }
 }
 
-var COMMIT_TYPE = {
-    typeList: {
-        feat: {
-            description: '    产品需求实现的一部分',
-            title: '需求'
-        },
-        fix: {
-            description: ' bug修复',
-            title: 'bug修复'
-        },
-        docs: {
-            description: '    添加/完善文档',
-            title: '文档'
-        },
-        refactor: {
-            description: '不为了实现新功能或修复已有bug的代码修改',
-            title: '代码重构'
-        },
-        test: {
-            description: '  添加新的测试用例或修改已有的测试用例',
-            title: '测试用例'
-        },
-        build: {
-            description: '    打包',
-            title: '打包'
-        },
-        revert: {
-            description: ' 撤回一个过往的提交',
-            title: '撤回'
-        }
-    }
-};
-
 module.exports = {
     prompter: function(cz, commit) {
         // var config = {

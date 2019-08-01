@@ -5,7 +5,13 @@ var buildCommit = require('./buildCommit');
 module.exports = {
     getQuestions: function(choices, language) {
         // normalize config optional options
-        var messages = ({ type, scope, subject, version, body, confirmCommit } = language);
+        var messages = {};
+        messages.type = language.type;
+        messages.scope = language.scope;
+        messages.subject = language.subject;
+        messages.version = language.version;
+        messages.body = language.body;
+        messages.confirmCommit = language.confirmCommit;
 
         const TagChoiceArray = Object.keys(choices).map(function(key) {
             return {
