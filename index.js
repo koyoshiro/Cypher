@@ -41,7 +41,7 @@ module.exports = {
         var language = require('./language');
         // config.types = language.english.choices;
 
-        cz.prompt(questions.getQuestions(language.english.choices,language)).then(function(answers) {
+        cz.prompt(questions.getQuestions(language.english.choices,language.english)).then(function(answers) {
             if (answers.confirmCommit === 'yes') {
                 commit(buildCommit(answers));
             } else {
