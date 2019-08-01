@@ -1,3 +1,13 @@
+<a name="1.0.13"></a>
+## [1.0.13](https://github.com/koyoshiro/Cypher/compare/v1.0.12...v1.0.13) (2019-08-01)
+
+
+### Bug Fixes
+
+* fix language.english reference ([7ee245b](https://github.com/koyoshiro/Cypher/commit/7ee245b))
+
+
+
 <a name="1.0.12"></a>
 ## [1.0.12](https://github.com/koyoshiro/Cypher/compare/v1.0.11...v1.0.12) (2019-08-01)
 

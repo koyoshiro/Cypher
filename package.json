@@ -1,6 +1,6 @@
 {
     "name": "kyr-cypher",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "description": "format commitment for git commit",
     "main": "index.js",
     "scripts": {
