@@ -16,7 +16,7 @@ And you could check your committing files when pre-commit.
         "version": "npm run changelog && git add CHANGELOG.md"
     },
 "devDependencies": {
-        "gjallar": "^1.0.9"
+        "@vanir/gjallar": "^1.0.9"
     },
 "husky": {
     "hooks": {
@@ -25,7 +25,7 @@ And you could check your committing files when pre-commit.
     },
 "config": {
     "commitizen": {
-        "path": "node_modules/gjallar"
+        "path": "node_modules/@vanir/gjallar"
         }
     }
 ```
