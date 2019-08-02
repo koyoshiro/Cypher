@@ -1,5 +1,5 @@
 {
-    "name": "kyr-cypher",
+    "name": "gjallar",
     "version": "1.1.0",
     "description": "format commitment for git commit",
     "main": "index.js",

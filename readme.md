@@ -1,8 +1,6 @@
 ![image](https://img.shields.io/badge/language-Javascript-orange.svg) ![image](https://img.shields.io/badge/npm-v1.0.6-blue.svg) ![image](https://travis-ci.org/koyoshiro/Cypher.svg?branch=master)
 
 # Introduction
-Put your cypher then pass it.
-
 Msg formatting tool for git-commit based on Commitizen.
 
 And you could check your committing files when pre-commit.
@@ -18,7 +16,7 @@ And you could check your committing files when pre-commit.
         "version": "npm run changelog && git add CHANGELOG.md"
     },
 "devDependencies": {
-        "kyr-cypher": "^1.0.9"
+        "gjallar": "^1.0.9"
     },
 "husky": {
     "hooks": {
@@ -27,7 +25,7 @@ And you could check your committing files when pre-commit.
     },
 "config": {
     "commitizen": {
-        "path": "node_modules/kyr-cypher"
+        "path": "node_modules/gjallar"
         }
     }
 ```
